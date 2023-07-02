@@ -1,0 +1,23 @@
+
+.new-task {
+  border: secondary;
+  color: gray;
+}
+
+.new-task:hover {
+  border-color: rgb(245, 92, 118)!important;
+  color: rgb(245, 92, 118)!important;
+  background-color: none!important;
+}
+
+.edit-task:hover {
+  color: purple!important;
+  border-color: purple!important;
+}
+
+.delete-task:hover {
+  color: red!important;
+  border-color: red!important;
+}
+
+

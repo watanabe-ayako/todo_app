@@ -1,0 +1,13 @@
+{{define "content"}}
+<h3 class="text-center">signup</h3>
+
+<!-- フォームに入力された情報はactionのURLにpostメソッドで送信される -->
+<form class="form-signin" role="form" action="/signup" method="post">
+    <h2 class="form-signin-heading">
+    </h2>
+    <input id="name" type="text" name="name" class="form-control" placeholder="name" required autofocus>
+    <input type="email" name="email" class="form-control" placeholder="email" required>
+    <input type="password" name="password" class="form-control" placeholder="password" required>
+    <button class="btn btn-lg btn-outline-secondary btn-block" type="submit">sign up</button>
+</form>
+{{end}}

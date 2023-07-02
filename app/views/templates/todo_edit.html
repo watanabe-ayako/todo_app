@@ -1,0 +1,17 @@
+{{ define "content"}}
+<div class="tex-center">
+  <form role="form" action="/todos/update/{{.ID}}" method="post" class="text-center">
+    <div class="lead">edit your task</div>
+    <br/>
+    <div class="form-group">
+      <textarea class="form-control" name="content" id="content" placeholder="edit Todo" rows="4">{{.Content}}</textarea>
+      <br/>
+      <p style="display:none;" id="status">{{ .Status }}</p>
+      <button id="status-todo" type="submit" name="status" value="0" class="btn btn-outline-warning mr-1">todo</button>
+      <button id="status-progress" type="submit" name="status" value="1" class="btn btn-outline-info mr-1">in progress</button>
+      <button id="status-done" type="submit" name="status" value="2" class="btn btn-outline-success">done!</button>
+      <br/>
+    </div>
+  </form>
+</div>
+{{end}}

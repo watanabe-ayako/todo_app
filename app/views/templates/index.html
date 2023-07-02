@@ -1,0 +1,48 @@
+{{ define "content" }}
+<div class="container" style="text-align: center;">
+  <h3>{{.Name}}'s TODO</h3>
+  <br>
+  <div class="row-center">
+    <a href="/todos/new" class="new-task"><button class="btn btn-outline-secondary new-task">Create New Task</button></a>
+  </div>
+  <div class="row">
+    <a href="/todos/todo/0"><button id="sort-btn-todo" class="btn btn-outline-secondary mr-1 ml-3 text-left text-secondary">todo</button></a>
+    <a href="/todos/inprogress/1"><button id="sort-btn-in-progress" class="btn btn-outline-secondary mr-1 text-left text-secondary">in progress</button></a>
+    <a href="/todos/done/2"><button id="sort-btn-done" class="btn btn-outline-secondary mr-1 text-left text-secondary">done!</button></a>
+    <a href="/todos"><button id="sort-btn-all" class="btn btn-outline-secondary text-left text-secondary">all</button></a>
+  </div>
+  <br/>
+</div>
+<hr>
+<div class="container">
+{{ range .Todos }}
+  <div class="row mt-5">
+    <div class="col-4">
+      <p style="display:none;" class="todo-id">{{ .ID }}</p>
+      <p style="display:none;" class="status">{{ .Status }}</p>
+      <form role="form" action="/todos/update/{{.ID}}" method="post">
+        <div class="form-group">
+          <textarea style="display:none;" class="form-control" name="content" id="content">{{.Content}}</textarea>
+          <button type="submit" name="status" value="0" class="status-todo btn btn-outline-warning mr-1">todo</button>
+          <button type="submit" name="status" value="1" class="status-progress btn btn-outline-info mr-1">in progress</button>
+          <button type="submit" name="status" value="2" class="status-done btn btn-outline-success">done!</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-4" style="text-align: center;">
+      <h5>
+        <div style="white-space:pre-wrap;">{{ .Content }}</div>
+        <!-- &nbsp; &nbsp; &nbsp; -->
+      </h5>
+    </div>
+    <div class="col-4">
+      <a href="/todos/edit/{{.ID}}"><button type="button" class="btn btn-outline-secondary text-secondary edit-task"> edit </button></a>
+      &nbsp;
+      <a href="/todos/delete/{{.ID}}" onclick="return confirm('are you sure to delete the task？');"><button type="button" class="btn btn-outline-secondary text-secondary delete-task">delete</button></a>
+    </div>
+    <br/>
+  </div>
+  <hr>
+{{end}}
+</div>
+{{end}}
