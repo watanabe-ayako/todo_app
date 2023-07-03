@@ -100,7 +100,7 @@ func GetTodosWithStatus(id int, status int) (todos []Todo, err error) {
 	cmd := `select id, content, status, user_id, created_at from todos where user_id = ? and status = ?`
 	rows, err := Db.Query(cmd, id, status)
 	if err != nil {
-		log.Fatalln("実行時エラー", err, cmd, id, status)
+		log.Fatalln(err)
 	}
 
 	for rows.Next() {
@@ -112,7 +112,7 @@ func GetTodosWithStatus(id int, status int) (todos []Todo, err error) {
 			&todo.UserID,
 			&todo.CreatedAt)
 		if err != nil {
-			log.Fatalln("値アサート時エラー", err)
+			log.Fatalln(err)
 		}
 		todos = append(todos, todo)
 	}
