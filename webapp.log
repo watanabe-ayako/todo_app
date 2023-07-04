@@ -2304,3 +2304,5 @@ created by net/http.(*Server).Serve
 	/usr/local/Cellar/go/1.20.2/libexec/src/net/http/server.go:3089 +0x5ed
 2023/07/02 19:18:30 route_auth.go:50: sql: no rows in result set
 2023/07/02 19:18:30 server.go:3217: http: superfluous response.WriteHeader call from todo_go/app/controllers.authenticate (route_auth.go:67)
+2023/07/03 11:10:59 route_auth.go:50: sql: no rows in result set
+2023/07/03 11:10:59 server.go:3217: http: superfluous response.WriteHeader call from todo_go/app/controllers.authenticate (route_auth.go:67)
